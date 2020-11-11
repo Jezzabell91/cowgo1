@@ -18,9 +18,9 @@ _R10. A link to your GitHub repository (repo)_
 
 ## Links (FIX LINKS)
 
-[https://cowgo.com.au](https://cowgo.com.au/)
+[https://cowgo.herokuapp.com](https://cowgo.herokuapp.com)
 
-[https://github.com/jezzabell91/cowgo](https://github.com/jezzabell91/cowgo)
+[https://github.com/jezzabell91/cowgo1](https://github.com/jezzabell91/cowgo1)
 
 _R11. Description of your marketplace app (website), including_:
  - Purpose
