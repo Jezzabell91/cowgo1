@@ -116,6 +116,11 @@ _R15. Explain the different high-level components (abstractions) in your app_
 
 _R16. Detail any third party services that your app will use_
 
+### Heroku ###
+
+CowGo is deployed with Heroku, a cloud deployment service. The source control workflow that is being used for development is the GitHub flow thus, feature branches need to be merged with main before they are pushed and Heroku is compatible with this flow. A Heroku pipeline has been implemented which allows for a multistage process before the app is deployed to production. The staging app part of the pipeline holds a deployable preproduction version of the app and allows manual deployment of feature branches. This means that each branch can be deployed and tested before merging with the main branch. Once merged with the main branch the pipeline has been configured to automatically build and deploy the staging app whenever the main branch of CowGo is pushed to the GitHub repository. If the deployed staging app is working as intended, it is promoted to the production app. 
+
+
 Devise
 Rolify
 Stripe
