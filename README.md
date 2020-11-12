@@ -194,4 +194,14 @@ Figma
 
 - Brainstorming Design system
 - Figma Wireframe Kit (Free)
--
+
+
+SVG Logo
+[https://svglogomaker.com/](https://svglogomaker.com/)
+
+Inline SVG
+https://github.com/jamesmartin/inline_svg
+
+
+Landing Page 
+https://www.digitalocean.com/community/tutorials/build-a-beautiful-landing-page-with-tailwind-css#step-3-%E2%80%94-building-the-hero-section

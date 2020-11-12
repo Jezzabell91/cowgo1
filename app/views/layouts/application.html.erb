@@ -8,9 +8,18 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  
+    <style>
+      #menu-toggle:checked + #menu {
+        display: block;
+      }
+    </style>
+
   </head>
 
-  <body>
+  <body class="antialiased bg-gray-200">
+    <%= render "partials/navbar" %>
+    
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
