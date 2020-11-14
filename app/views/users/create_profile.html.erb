@@ -19,3 +19,7 @@
 </div>
 
 <% end %>
+
+<%= render partial: "partials/addresses", locals: {addressable: @user} %>
+<%= render partial: "partials/address", locals: {addressable: @user} %>
+
