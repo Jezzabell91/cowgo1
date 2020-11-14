@@ -1,0 +1,21 @@
+<%= form_with(model: @user, url: create_profile_path, local: true) do |form| %>
+
+<div class="field">
+    <h4>Details</h4>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :company, placeholder: "Company", required: false %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :website, placeholder: "Website", required: false %>
+  </div>
+
+  <div class="field">
+    <%= form.text_area :description, placeholder: "About you", required: false %>
+  </div>
+
+</div>
+
+<% end %>
