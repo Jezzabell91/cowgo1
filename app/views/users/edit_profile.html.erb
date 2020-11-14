@@ -1,0 +1,33 @@
+<%= form_with(model: @user, url: edit_profile_path, local: true) do |form| %>
+
+<div class="field">
+    <h4>ADD YOUR DETAILS</h4>
+</div>
+
+<div class="field">
+    <%= form.text_field :company, placeholder: "Company", required: false %>
+</div>
+
+<div class="field">
+    <%= form.text_field :website, placeholder: "Website", required: false %>
+</div>
+
+<div class="field">
+    <%= form.text_area :description, placeholder: "About you", required: false %>
+</div>
+
+<% if @user.transporter_role == true %>
+    <div class="field">
+        <%= form.number_field :capacity, placeholder: "Max weight of cargo (kg)", required: true, min: 0 %>
+    </div>
+    <div class="field">
+        <%= form.number_field :range, placeholder: "Max range of transport (km)", required: true, min: 0 %>
+    </div>
+<% end %>
+
+<%= form.submit class: "btn" %>
+</div>
+
+
+
+<% end %>

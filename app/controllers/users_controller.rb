@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :get_user, only: [:profile, :create_profile]
+before_action :get_user, only: [:profile, :create_profile, :edit_profile, :update_profile, :livestock_owner_role, :transporter_role, :choose_role]
 before_action :authenticate_user!, except: [:index, :show]  
 
   def edit_profile
@@ -18,12 +18,39 @@ before_action :authenticate_user!, except: [:index, :show]
     end
   end
 
-  def profile
+  def update_profile
+    @user.update(user_profile_params)
+    redirect_to profile_path(@user)
+  end
+
+  def choose_role
     if current_user && @user.id == current_user.id
-      render 'profile'
+      render 'choose_role'
     else
       redirect_to root_path  
     end
+  end
+
+  def livestock_owner_role
+    if current_user && @user.id == current_user.id
+      @user.update(livestock_owner_role: true)
+      render 'edit_profile'
+    else
+      redirect_to root_path  
+    end
+  end
+
+  def transporter_role
+    if current_user && @user.id == current_user.id
+      @user.update(transporter_role: true)
+      render 'edit_profile'
+    else
+      redirect_to root_path  
+    end
+  end
+
+  def profile
+      render 'profile'
   end
   
   def edit
@@ -48,5 +75,15 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def get_user 
     @user = User.find(params[:id])
+  end
+
+  def user_profile_params
+    params.require(:user).permit(
+      :company,
+      :website,
+      :description,
+      :range,
+      :capacity
+    )
   end
 end
