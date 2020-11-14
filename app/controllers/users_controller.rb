@@ -34,6 +34,10 @@ before_action :authenticate_user!, except: [:index, :show]
     
   end
 
+  def show
+    redirect_to action: 'profile'
+  end
+
   def destroy
     
   end

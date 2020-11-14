@@ -1,0 +1,6 @@
+<h3>Addresses</h3>
+<% addressable.addresses.each do |address| %>
+<p>
+    <%= address.street_number + " " + address.street_name + " " + address.postcode + " " + address.state %>
+</p>
+<% end %>
