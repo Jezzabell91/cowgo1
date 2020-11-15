@@ -12,6 +12,12 @@ Rails.application.routes.draw do
     resources :addresses, module: :users 
   end
 
+  resources :jobs do 
+    resources :addresses, module: :jobs 
+  end
+
+
+
   get 'users/profile/:id/choose_role', to: 'users#choose_role', as: "choose_role"
   post 'users/profile/:id/livestock_owner_role', to: 'users#livestock_owner_role'
   post 'users/profile/:id/transporter_role', to: 'users#transporter_role'

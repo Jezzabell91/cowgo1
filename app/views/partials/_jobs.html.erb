@@ -1,0 +1,61 @@
+<%= form_with(model: @jobs, local: true) do |form| %>
+
+<div class="field">
+    <h4>Job</h4>
+  </div>
+
+  <h4>Origin</h4>
+  <%= form.fields_for (model: [addressable, Address.new], local: true) do |origin_form| %>
+  <div class="field">
+    <%= origin_form.text_field :street_number, placeholder: "Street Number", required: true %>
+  </div>
+
+  <div class="field">
+    <%= origin_form.text_field :street_name, placeholder: "Street Name", required: true %>
+  </div>
+
+  <div class="field">
+    <%= origin_form.text_field :state, placeholder: "State", required: true %>
+  </div>
+
+  <div class="field">
+    <%= origin_form.text_field :postcode, placeholder: "Postcode", required: true %>
+  </div>
+
+  <div class="field">
+    <%= origin_form.text_field :country, placeholder: "Country", required: true %>
+  </div>
+  <% end %>
+<hr>
+  <h4>Destination</h4>
+  <%= form.fields_for (model: [addressable, Address.new], local: true) do |destination_form| %>
+  <div class="field">
+    <%= destination_form.text_field :street_number, placeholder: "Street Number", required: true %>
+  </div>
+
+  <div class="field">
+    <%= destination_form.text_field :street_name, placeholder: "Street Name", required: true %>
+  </div>
+
+  <div class="field">
+    <%= destination_form.text_field :state, placeholder: "State", required: true %>
+  </div>
+
+  <div class="field">
+    <%= destination_form.text_field :postcode, placeholder: "Postcode", required: true %>
+  </div>
+
+  <div class="field">
+    <%= destination_form.text_field :country, placeholder: "Country", required: true %>
+  </div>
+  <% end %>
+<hr>
+<h4>Number of Livestock</h4>
+<%= form.number_field :head, required: true, min: 0 %>
+<h4>Estimated Weight</h4>
+<%= form.number_field :weight, required: true, min: 0 %>
+  <%= form.submit class: "btn" %>
+  <% end %>
+</div>
+
+<% end %>
