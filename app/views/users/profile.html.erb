@@ -6,10 +6,16 @@
       >
         <div class="px-6">
           <div class="flex flex-wrap justify-center">
-              <div>
-                  <%= image_tag("profile_image_test.jpg", class: "rounded-full h-32 w-32") %>
 
-              </div>
+              <div class="mt-10">
+                <% if @user.profile_image.attached? %>
+                    <%= cl_image_tag(@user.profile_image.key, cloud_name: 'coderacademy',  :transformation=>[
+                    {:width=>400, :height=>400, :gravity=>"faces", :radius=>"max", :crop=>"crop"},
+                    {:width=>128, :crop=>"scale"}
+                    ]) %>
+                <% end %>
+            </div>
+            
             </div>
 
           </div>

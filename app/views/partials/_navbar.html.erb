@@ -38,17 +38,27 @@
                     </li>
                     <% if user_signed_in? %>
 
-                    <!-- Put the users profile image here and link it to their profile page -->
-                        <li>
-                            <button class="btn btn-transparent">
-                                Login
-                            </button>
-                        </li>
+                    
+
                         <li>
                             <button class="btn btn-green">
                                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
                             </button>
                         </li>
+                    <!-- Put the users profile image here and link it to their profile page -->
+
+
+                    <%= link_to root_path do %>
+                        <% if current_user.profile_image.attached? %>
+                            <%= cl_image_tag(current_user.profile_image.key, class: 'rounded-full w-10 h-10 border-2 border-transparent hover:border-indigo-400', cloud_name: 'coderacademy',  :transformation=>[
+                            {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+                            {:width=>48, :crop=>"scale"}
+                            ]) %>
+                        <% else %>
+                            <%= current_user.first_name + "'s profile"%>
+                        <% end %>
+                    <% end %>
+
                     <% else %>
                       <li>
                         <button class="btn btn-transparent">

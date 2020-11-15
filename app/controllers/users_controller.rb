@@ -95,7 +95,8 @@ before_action :authenticate_user!, except: [:index, :show]
       :website,
       :description,
       :range,
-      :capacity
+      :capacity,
+      :profile_image
     )
   end
 end
