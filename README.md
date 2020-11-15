@@ -6,7 +6,7 @@ _R8._ _Why is it a problem that needs solving?_
 
 ## Pitch
 
-Create an Uber like service for livestock transport.
+Create an Uber-like service for livestock transport.
 
 ## Problem
 
