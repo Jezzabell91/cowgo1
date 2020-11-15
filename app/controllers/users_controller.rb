@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :get_user, only: [:profile, :create_profile, :edit_profile, :update_profile, :livestock_owner_role, :transporter_role, :choose_role]
+before_action :get_user, only: [:profile, :create_profile, :edit_profile, :update_profile, :livestock_owner_role, :transporter_role, :choose_role, :create_address]
 before_action :authenticate_user!, except: [:index, :show]  
 
   def edit_profile
@@ -18,9 +18,21 @@ before_action :authenticate_user!, except: [:index, :show]
     end
   end
 
+  def create_address
+    if current_user && @user.id == current_user.id
+      render 'create_address'
+    else
+      redirect_to root_path  
+    end
+  end
+
   def update_profile
     @user.update(user_profile_params)
-    redirect_to profile_path(@user)
+    if @user.addresses.empty?
+      render 'create_address'
+    else
+      redirect_to profile_path(@user)
+    end
   end
 
   def choose_role

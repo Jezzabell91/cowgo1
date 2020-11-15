@@ -27,12 +27,19 @@
             >
             <%= render partial: "partials/addresses", locals: {addressable: @user} %>
             </div>
+
+            <% unless @user.company.empty? %>
             <div class="mb-2 text-gray-700 mt-10">
-              <%= current_user.company.capitalize %>
+              Company: <%= current_user.company.capitalize %>
             </div>
-            <div class="mb-2 text-gray-700">
-              <%= current_user.website %>
+            <% end %>
+
+            <% unless @user.website.empty? %>
+            <div class="mb-2 text-gray-700 mt-10">
+              Website: <%= current_user.website %>
             </div>
+            <% end %>
+
             <% if @user.transporter_role == true %>
             <div class="mb-2 text-gray-700">
                 Max weight of cargo (kg): <%= current_user.capacity %>

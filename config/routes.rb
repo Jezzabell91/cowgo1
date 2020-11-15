@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'users/profile/:id', to: 'users#profile', as: "profile"
   get 'users/profile/:id/edit', to: 'users#edit_profile', as: "edit_profile"
+  get 'users/profile/:id/create_address', to: 'users#create_address', as: "create_user_address"
   post 'users/profile/:id/create', to: 'users#create_profile'
   patch 'users/profile/:id/edit', to: 'users#update_profile'
   root to: 'home#index'
