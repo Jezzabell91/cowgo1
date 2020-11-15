@@ -1,38 +1,74 @@
-<%= form_with(model: @user, url: edit_profile_path, local: true) do |form| %>
+<div class="max-w-lg m-auto">
+    <h1 class="text-3xl font-bold mb-6 text-white">Add Your Details</h1>
+
+
+<%= form_with(model: @user, url: edit_profile_path, local: true, class: "form") do |form| %>
 
 <div class="field">
-    <h4>ADD YOUR DETAILS</h4>
+    <div class="label-div">
+        <%= form.label :company, class: "label"  %>
+    </div>
+    <div class="input-div">
+        <%= form.text_field :company, placeholder: "Company", required: false, class: "input" %>
+    </div>
 </div>
 
 <div class="field">
-    <%= form.text_field :company, placeholder: "Company", required: false %>
+    <div class="label-div">
+        <%= form.label :website, class: "label"  %>
+    </div>
+    <div class="input-div">
+        <%= form.text_field :website, placeholder: "Website", required: false, class: "input" %>
+    </div>
 </div>
 
 <div class="field">
-    <%= form.text_field :website, placeholder: "Website", required: false %>
-</div>
-
-<div class="field">
-    <%= form.text_area :description, placeholder: "About you", required: false %>
+    <div class="label-div">
+        <%= form.label :description, class: "label"  %>
+    </div>
+    <div class="input-div">
+        <%= form.text_area :description, placeholder: "About you", required: false, class: "input" %>
+    </div>
 </div>
 
 <% if @user.transporter_role == true %>
-    <div class="field">
-        <%= form.number_field :capacity, placeholder: "Max weight of cargo (kg)", required: true, min: 0 %>
+
+<div class="field">
+    <div class="label-div">
+        <%= form.label :capacity, class: "label"  %>
     </div>
-    <div class="field">
-        <%= form.number_field :range, placeholder: "Max range of transport (km)", required: true, min: 0 %>
+    <div class="input-div">
+        <%= form.number_field :capacity, placeholder: "Max weight of cargo (kg)", required: true, min: 0, class: "input" %>
     </div>
+</div>
+
+<div class="field">
+    <div class="label-div">
+        <%= form.label :range, class: "label"  %>
+    </div>
+    <div class="input-div">
+        <%= form.number_field :range, placeholder: "Max range of transport (km)", required: true, min: 0, class: "input" %>
+    </div>
+</div>
 <% end %>
 
 <div class="field">
-    <%= form.label :profile_image %>
-    <%= form.file_field :profile_image%>
+    <div class="label-div">
+        <%= form.label :profile_image, class: "label"  %>
+    </div>
+    <div class="input-div text">
+        <%= form.file_field :profile_image, class: "text-white" %>
+    </div>
 </div>
 
-<%= form.submit class: "btn" %>
+<div class="md:flex md:items-center">
+    <div class="md:w-1/3"></div>
+    <div class="md:w-2/3">
+        <%= form.submit class: "btn" %>
+    </div>
 </div>
-
 
 
 <% end %>
+
+</div>

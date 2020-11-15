@@ -96,7 +96,8 @@ before_action :authenticate_user!, except: [:index, :show]
       :description,
       :range,
       :capacity,
-      :profile_image
+      :profile_image,
+      job_ids: []
     )
   end
 end

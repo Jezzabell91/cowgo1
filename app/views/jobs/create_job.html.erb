@@ -1,0 +1,16 @@
+<%= form_with(model: @jobs, local: true) do |form| %>
+
+<div class="field">
+    <h4>Job</h4>
+    <hr>
+</div>
+<div class="field">
+    <h4>Number of Livestock</h4>
+    <%= form.number_field :head, required: true, min: 0 %>
+</div>
+<div class="field">
+    <h4>Estimated Weight</h4>
+    <%= form.number_field :weight, required: true, min: 0 %>
+</div>
+<%= form.submit class: "btn" %>
+<% end %>
