@@ -1,6 +1,70 @@
-<div>
-    <h1><%= current_user.first_name.capitalize %></h1>
-</div>
 
-<%= render partial: "partials/addresses", locals: {addressable: @user} %>
 
+<section class="px-6 p-5">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-32"
+      >
+        <div class="px-6">
+          <div class="flex flex-wrap justify-center">
+
+              <div class="mt-10">
+                <% if @user.profile_image.attached? %>
+                    <%= cl_image_tag(@user.profile_image.key, cloud_name: 'coderacademy',  :transformation=>[
+                    {:width=>400, :height=>400, :gravity=>"faces", :radius=>"max", :crop=>"crop"},
+                    {:width=>128, :crop=>"scale"}
+                    ]) %>
+                <% end %>
+            </div>
+            
+            </div>
+
+          </div>
+          <div class="text-center mt-12">
+            <h3
+              class="text-4xl font-semibold leading-normal mb-2 text-gray-800 "
+            >
+            <%= current_user.first_name.capitalize + current_user.last_name.capitalize %>
+            </h3>
+                <% if current_user && current_user.id == @user.id %> 
+                    <%= link_to "Edit", edit_profile_path, class:"edit" %>
+                <% end %>
+            <div
+              class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
+            >
+            <%= render partial: "partials/addresses", locals: {addressable: @user} %>
+            </div>
+
+            <% unless @user.company.empty? %>
+            <div class="mb-2 text-gray-700 mt-10">
+              Company: <%= current_user.company.capitalize %>
+            </div>
+            <% end %>
+
+            <% unless @user.website.empty? %>
+            <div class="mb-2 text-gray-700 mt-10">
+              Website: <%= current_user.website %>
+            </div>
+            <% end %>
+
+            <% if @user.transporter_role == true %>
+            <div class="mb-2 text-gray-700">
+                Max weight of cargo (kg): <%= current_user.capacity %>
+            </div>
+            <div class="mb-2 text-gray-700">
+                Max range of transport (km): <%= current_user.range %>
+            </div>
+            <% end %>
+          </div>
+          <div class="mt-10 py-10 border-t border-gray-300 text-center">
+            <div class="flex flex-wrap justify-center">
+              <div class="w-full lg:w-9/12 px-4">
+                <p class="mb-4 text-lg leading-relaxed text-gray-800">
+                    <%= current_user.description %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
