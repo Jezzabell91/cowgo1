@@ -1,7 +1,8 @@
 
 <% @user.jobs.each do |job| %>
 <p>
-
-    <%= job.head.to_s + " " + job.weight.to_s %>
+    <%= link_to job_path(job.id) do %>
+        <%= "Job_ID: " + job.id.to_s + " - Created: " + job.created_at.strftime("%b %d, %Y") %>
+    <% end %>
 </p>
 <% end %>

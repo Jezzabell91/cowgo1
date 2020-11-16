@@ -1,34 +1,45 @@
 <div class="max-w-lg m-auto">
-    <h1 class="text-3xl font-bold mb-6 text-white">Job</h1>
+
+
+</div>
+<div class="max-w-lg m-auto">
+<div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
+    <div class="mx-3 md:flex mb-6">
+   
+    
 
     <div class="job_post">
+        <small>Posted:
+            <%= @job.created_at.strftime("%b %d, %Y") %></small>
+        <h3 class="text-xl font-bold text-gray-800">Job <%= @job.id %></h3>
         <strong>Job Poster:</strong>
 
-        <%= link_to profile_path(@job.users.last.id) do %>
-            <%= @job.users.first.first_name + " " + @job.users.first.last_name %>
+        <%= link_to profile_path(@job.users.last.id), class: "underline" do %>
+            <%= @job.users.first.first_name.capitalize + " " + @job.users.first.last_name.capitalize %>
         <% end %>
-
+<br>
         <strong>Number of head:</strong>
             <%= @job.head %>
-
+<br>
         <strong>Estimated weight:</strong>
-            <%= @job.weight %>
-
+            <%= @job.weight.to_s + "kg" %>
+<br>
         <strong>Instructions:</strong>
             <%= @job.instructions %>
+<br>
 
-        <strong>Job Posted:</strong>
-            <%= @job.created_at.strftime("%b %d, %Y") %>
-        
             <% unless current_user.id == @job.users.first.id %>
                 <% if current_user.transporter_role == true || current_user.admin_role == true %>
                     <h1 class="text-white text-3xl">Put Accept Button Here</h1>
                 <% end %>
             <% end %>
-
+            <br>
             <% if current_user.id == @job.users.first.id && current_user.livestock_owner_role == true%>
-                <%= link_to "Edit Job Details", edit_job_path, class:"edit " %>
+                <%= link_to "Edit Job Details", edit_job_path, class:"btn" %>
             <% end %>
         
     </div>
+</div>
+</div>
+</div>
 </div>

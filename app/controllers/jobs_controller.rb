@@ -1,6 +1,6 @@
 class JobsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]  
-    before_action :set_users, only: [:show, :update, :edit, :new]
+    before_action :set_users, only: [:show, :update, :edit, :new, :destroy]
     before_action :set_job, only: [:show, :update, :edit, :destroy]
 
 
@@ -34,6 +34,10 @@ class JobsController < ApplicationController
         end
     end
 
+    def destroy
+        @job.destroy
+        redirect_to users_jobs_path(current_user.id)
+    end
 
 
     private
@@ -51,6 +55,7 @@ class JobsController < ApplicationController
             :head,
             :weight,
             :instructions,
+            :address,
             user_ids: []
         )
     end
