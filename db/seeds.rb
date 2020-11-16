@@ -8,8 +8,11 @@
 
 
 User.destroy_all
+User.reset_pk_sequence
 Job.destroy_all
+Job.reset_pk_sequence
 Address.destroy_all
+Address.reset_pk_sequence
 
 users = [
     {
@@ -33,7 +36,7 @@ users = [
         company: "Stan's Steaks", 
         website: "stanssteaks.fake", 
         description: "In America, If Something Sucks, You're Supposed To Be Able To Get Your Money Back!"
-    }],
+    },
     {
         first_name: "Kyle", 
         last_name: "Broflovski", 
@@ -64,7 +67,7 @@ users = [
         email: "kmccormick@test.com", 
         password: "123456", 
         password_confirmation: "123456", 
-        transporter__role: "true", 
+        transporter_role: "true", 
         company: "Kenny's Clubhouse", 
         website: "kennysclubhouse.fake",
         capacity: 10,
@@ -77,7 +80,7 @@ users = [
         email: "tblack@test.com", 
         password: "123456", 
         password_confirmation: "123456", 
-        transporter__role: "true", 
+        transporter_role: "true", 
         company: "Token's Ranch", 
         website: "tokensranch.fake",
         capacity: 20,
