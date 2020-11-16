@@ -14,6 +14,9 @@
                     {:width=>128, :crop=>"scale"}
                     ]) %>
                 <% end %>
+                <% if current_user && current_user.id == @user.id %> 
+                <%= link_to "Edit Your Profile", edit_profile_path, class:"edit " %>
+            <% end %>
             </div>
             
             </div>
@@ -23,11 +26,9 @@
             <h3
               class="text-4xl font-semibold leading-normal mb-2 text-gray-800 "
             >
-            <%= current_user.first_name.capitalize + current_user.last_name.capitalize %>
+            <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %>
             </h3>
-                <% if current_user && current_user.id == @user.id %> 
-                    <%= link_to "Edit", edit_profile_path, class:"edit" %>
-                <% end %>
+  
             <div
               class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
             >
@@ -36,22 +37,22 @@
 
             <% unless @user.company.empty? %>
             <div class="mb-2 text-gray-700 mt-10">
-              Company: <%= current_user.company.capitalize %>
+              Company: <%= @user.company.capitalize %>
             </div>
             <% end %>
 
             <% unless @user.website.empty? %>
             <div class="mb-2 text-gray-700 mt-10">
-              Website: <%= current_user.website %>
+              Website: <%= @user.website %>
             </div>
             <% end %>
 
             <% if @user.transporter_role == true %>
             <div class="mb-2 text-gray-700">
-                Max weight of cargo (kg): <%= current_user.capacity %>
+                Max weight of cargo (kg): <%= @user.capacity %>
             </div>
             <div class="mb-2 text-gray-700">
-                Max range of transport (km): <%= current_user.range %>
+                Max range of transport (km): <%= @user.range %>
             </div>
             <% end %>
           </div>
@@ -59,7 +60,7 @@
             <div class="flex flex-wrap justify-center">
               <div class="w-full lg:w-9/12 px-4">
                 <p class="mb-4 text-lg leading-relaxed text-gray-800">
-                    <%= current_user.description %>
+                    <%= @user.description %>
                 </p>
               </div>
             </div>

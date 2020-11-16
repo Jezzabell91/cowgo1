@@ -1,7 +1,8 @@
 class JobsController < ApplicationController
     before_action :authenticate_user!, except: [:index, :show]  
-    before_action :set_job, only: [:show, :update, :edit, :destroy, :create]
     before_action :set_users, only: [:show, :update, :edit, :new]
+    before_action :set_job, only: [:show, :update, :edit, :destroy]
+
 
     def index
         @jobs = Job.all
@@ -16,17 +17,23 @@ class JobsController < ApplicationController
     end
 
     def create
-        @job = Job.create(job_params)
-        @job.user_id = current_user.id
-        render
+        @job = Job.new(job_params)
+        @job.user_ids = current_user.id
+        @job.save
+        redirect_to job_path(@job.id)  
     end
-
-
-
 
     def update
         @job.update(job_params)
+        redirect_to job_path(@job.id) 
     end
+
+    def edit 
+        if current_user && @job.users.first.id == current_user.id
+            render 'edit'
+        end
+    end
+
 
 
     private
@@ -44,8 +51,6 @@ class JobsController < ApplicationController
             :head,
             :weight,
             :instructions,
-            :paid,
-            :completed,
             user_ids: []
         )
     end

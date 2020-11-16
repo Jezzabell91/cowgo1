@@ -1,0 +1,34 @@
+<div class="max-w-lg m-auto">
+    <h1 class="text-3xl font-bold mb-6 text-white">Job</h1>
+
+    <div class="job_post">
+        <strong>Job Poster:</strong>
+
+        <%= link_to profile_path(@job.users.last.id) do %>
+            <%= @job.users.first.first_name + " " + @job.users.first.last_name %>
+        <% end %>
+
+        <strong>Number of head:</strong>
+            <%= @job.head %>
+
+        <strong>Estimated weight:</strong>
+            <%= @job.weight %>
+
+        <strong>Instructions:</strong>
+            <%= @job.instructions %>
+
+        <strong>Job Posted:</strong>
+            <%= @job.created_at.strftime("%b %d, %Y") %>
+        
+            <% unless current_user.id == @job.users.first.id %>
+                <% if current_user.transporter_role == true || current_user.admin_role == true %>
+                    <h1 class="text-white text-3xl">Put Accept Button Here</h1>
+                <% end %>
+            <% end %>
+
+            <% if current_user.id == @job.users.first.id && current_user.livestock_owner_role == true%>
+                <%= link_to "Edit Job Details", edit_job_path, class:"edit " %>
+            <% end %>
+        
+    </div>
+</div>

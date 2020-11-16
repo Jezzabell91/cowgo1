@@ -28,16 +28,16 @@
                         <a href="#"
                             class="nav-link">Contact</a>
                     </li>
-                    <li>
-                        <a href="#"
-                            class="nav-link">Help</a>
-                    </li>
+
                     <% if user_signed_in? %>
+
+                    <li>
+                        <%= link_to "Your Jobs", users_jobs_path(current_user.id), class: "nav-link" %>
+                    </li>
 
                     <% if current_user.livestock_owner_role == true %>
                     <li>
-                    <a href="#"
-                        class="nav-link">Post a Job</a>
+                        <%= link_to "Post a Job", new_job_path, class: "nav-link" %>
                     </li>
                     <% end %>
                         <li>

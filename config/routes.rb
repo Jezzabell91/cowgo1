@@ -26,7 +26,9 @@ Rails.application.routes.draw do
   post 'users/profile/:id/create', to: 'users#create_profile'
   patch 'users/profile/:id/edit', to: 'users#update_profile'
 
-  get 'jobs/create', to: 'jobs#create', as: "create_job"
+  get 'users/:id/jobs/', to: 'users#users_jobs', as: "users_jobs"
+  # get 'users/:user_id/jobs/:id', to: 'users#users_jobs', as: "users_job"
+  # get 'jobs/create', to: 'jobs#create', as: "create_job"
 
   root to: 'home#index'
 end
