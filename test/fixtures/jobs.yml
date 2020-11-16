@@ -4,12 +4,8 @@ one:
   head: 1
   weight: 1
   instructions: MyString
-  paid: false
-  completed: false
 
 two:
   head: 1
   weight: 1
   instructions: MyString
-  paid: false
-  completed: false

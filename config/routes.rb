@@ -16,8 +16,6 @@ Rails.application.routes.draw do
     resources :addresses, module: :jobs 
   end
 
-
-
   get 'users/profile/:id/choose_role', to: 'users#choose_role', as: "choose_role"
   post 'users/profile/:id/livestock_owner_role', to: 'users#livestock_owner_role'
   post 'users/profile/:id/transporter_role', to: 'users#transporter_role'
@@ -27,5 +25,8 @@ Rails.application.routes.draw do
   get 'users/profile/:id/create_address', to: 'users#create_address', as: "create_user_address"
   post 'users/profile/:id/create', to: 'users#create_profile'
   patch 'users/profile/:id/edit', to: 'users#update_profile'
+
+  get 'jobs/create', to: 'jobs#create', as: "create_job"
+
   root to: 'home#index'
 end
