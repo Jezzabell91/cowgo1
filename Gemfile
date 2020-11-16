@@ -61,3 +61,5 @@ gem "cloudinary", "~> 1.18"
 gem "activestorage-cloudinary-service", "~> 0.2.3"
 
 gem "inline_svg", "~> 1.7"
+
+gem "activerecord-reset-pk-sequence", "~> 0.2.1"

@@ -26,20 +26,20 @@
 
                     <li>
                         <a href="#"
-                            class="nav-link">About Us</a>
-                    </li>
-                    <li>
-                        <a href="#"
                             class="nav-link">Contact</a>
                     </li>
-                    <li>
-                        <a href="#"
-                            class="nav-link">Help</a>
-                    </li>
+
                     <% if user_signed_in? %>
 
-                    
+                    <li>
+                        <%= link_to "Your Jobs", users_jobs_path(current_user.id), class: "nav-link" %>
+                    </li>
 
+                    <% if current_user.livestock_owner_role == true %>
+                    <li>
+                        <%= link_to "Post a Job", new_job_path, class: "nav-link" %>
+                    </li>
+                    <% end %>
                         <li>
                             <button class="btn btn-green">
                                 <%= link_to "Logout", destroy_user_session_path, method: :delete %>
@@ -48,7 +48,7 @@
                     <!-- Put the users profile image here and link it to their profile page -->
 
 
-                    <%= link_to root_path do %>
+                    <%= link_to profile_path(current_user.id) do %>
                         <% if current_user.profile_image.attached? %>
                             <%= cl_image_tag(current_user.profile_image.key, class: 'rounded-full w-10 h-10 border-2 border-transparent hover:border-indigo-400', cloud_name: 'coderacademy',  :transformation=>[
                             {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
