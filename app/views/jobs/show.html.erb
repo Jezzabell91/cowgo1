@@ -6,15 +6,19 @@
 <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
     <div class="mx-3 md:flex mb-6">
    
-    
+
 
     <div class="job_post">
-        <small>Posted:
+        <div><small>Posted:
             <%= @job.created_at.strftime("%b %d, %Y") %></small>
         <h3 class="text-xl font-bold text-gray-800">Job <%= @job.id %></h3>
+
+    <hr>
+        </br>
+    </div>
         <strong>Job Poster:</strong>
 
-        <%= link_to profile_path(@job.users.last.id), class: "underline" do %>
+        <%= link_to profile_path(@job.users.last.id), class: "link" do %>
             <%= @job.users.first.first_name.capitalize + " " + @job.users.first.last_name.capitalize %>
         <% end %>
 <br>
@@ -34,11 +38,17 @@
                 <% end %>
             <% end %>
             <br>
+
+            <%= render partial: "partials/addresses", locals: {addressable: @job} %>
+            <br>
             <% if current_user.id == @job.users.first.id && current_user.livestock_owner_role == true%>
-                <%= link_to "Edit Job Details", edit_job_path, class:"btn" %>
+            <%= link_to "Edit Job", edit_job_path, class:"link" %> |    
+            <%= link_to "Edit Origin", edit_job_path, class:"link" %> |
+                <%= link_to "Edit Destination", edit_job_path, class:"link" %>
             <% end %>
-        
-    </div>
+
+        </div>
+    
 </div>
 </div>
 </div>
