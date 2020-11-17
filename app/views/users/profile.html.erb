@@ -9,13 +9,13 @@
 
               <div class="mt-10">
                 <% if @user.profile_image.attached? %>
-                    <%= cl_image_tag(@user.profile_image.key, cloud_name: 'coderacademy',  :transformation=>[
+                    <%= cl_image_tag(@user.profile_image.key, cloud_name: ENV['CLOUDINARY_CLOUD_NAME'],  :transformation=>[
                     {:width=>400, :height=>400, :gravity=>"faces", :radius=>"max", :crop=>"crop"},
                     {:width=>128, :crop=>"scale"}
                     ]) %>
                 <% end %>
                 <% if current_user && current_user.id == @user.id %> 
-                <%= link_to "Edit Your Profile", edit_profile_path, class:"edit " %>
+                <%= link_to "Edit Your Profile", edit_profile_path, class:"link" %>
             <% end %>
             </div>
             
