@@ -1,8 +1,22 @@
 
 <% @user.jobs.each do |job| %>
+<div
+class="link mt-2 mb-2  text-gray-600 font-semibold "
+>
 <p>
+    <span class="text-gray-800">
     <%= link_to job_path(job.id) do %>
-        <%= "Job_ID: " + job.id.to_s + " - Created: " + job.created_at.strftime("%b %d, %Y") %>
+    <% if job.completed  %>
+        Completed: 
+        <% elsif job.accepted %>
+        In Progress:
+        <% else %>
+        Listed: 
+    <% end %></span>
+    
+        <%= job.instructions %>
     <% end %>
 </p>
+</div>
+<hr>
 <% end %>

@@ -23,6 +23,7 @@ class JobsController < ApplicationController
 
     def new
         @job = Job.new
+        @job.addresses.build
     end
 
     def create
@@ -74,13 +75,15 @@ class JobsController < ApplicationController
         @job = Job.find(params[:id])
     end
 
+
+
     def job_params
         params.require(:job).permit(
             :head,
             :weight,
             :instructions,
-            :address,
-            user_ids: []
+            user_ids: [],
+            addresses_attributes: [ :job_id, :street_number, :street_name, :state, :postcode, :country]
         )
     end
 
