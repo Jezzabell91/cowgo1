@@ -66,7 +66,11 @@ before_action :authenticate_user!, except: [:index, :show]
   end
   
   def users_jobs
-    render 'users_jobs'
+    if current_user && @user.id == current_user.id
+      render 'users_jobs'
+    else
+      redirect_to root_path  
+    end
   end
 
   def accept_job

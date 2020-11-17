@@ -10,20 +10,7 @@
                   <th class="table-head">View</th>
               </tr>
             </thead>
-
-
-
 			<tbody class="flex-1 ">
-
-                <% if current_user.transporter_role == true %>
-                    <% @jobs = @jobs.select { |job| job.weight < current_user.capacity } %>
-                    <% if @jobs.empty? == true %>
-                    <p class="text-white">
-                    <%= "There are no jobs that are available with your current capacity and range." %>
-                    </p>
-                    <% end %>
-                <% end %>
-
                     <% @jobs.each do |job|   %>
                     <tr class="table-rows">
                         <td class="table-data">
@@ -43,7 +30,6 @@
                         <td class="table-data truncate"><%= job.addresses.second.postcode + " " + job.addresses.second.state %></td>
                         <td class="table-data "><%= link_to 'View', job_path(job.id), class: "link"%></td>
                     </tr>
-                    
                     <% end %>
 
 

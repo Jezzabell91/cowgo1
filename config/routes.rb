@@ -30,5 +30,7 @@ Rails.application.routes.draw do
   # get 'users/:user_id/jobs/:id', to: 'users#users_jobs', as: "users_job"
   # get 'jobs/create', to: 'jobs#create', as: "create_job"
 
+  post 'jobs/:id/accept_job', to: 'jobs#accept_job'
+  post 'jobs/:id/complete_job', to: 'jobs#complete_job'
   root to: 'home#index'
 end
