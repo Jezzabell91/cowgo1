@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-before_action :get_user, only: [:profile, :create_profile, :edit_profile, :update_profile, :livestock_owner_role, :transporter_role, :choose_role, :create_address]
+before_action :get_user, only: [:profile, :create_profile, :edit_profile, :update_profile, :livestock_owner_role, :transporter_role, :choose_role, :create_address, :users_jobs]
 before_action :authenticate_user!, except: [:index, :show]  
 
   def edit_profile
@@ -65,6 +65,14 @@ before_action :authenticate_user!, except: [:index, :show]
       render 'profile'
   end
   
+  def users_jobs
+    render 'users_jobs'
+  end
+
+  def accept_job
+    redirect_to root_path 
+  end
+
   def edit
     
   end
@@ -96,7 +104,8 @@ before_action :authenticate_user!, except: [:index, :show]
       :description,
       :range,
       :capacity,
-      :profile_image
+      :profile_image,
+      job_ids: []
     )
   end
 end

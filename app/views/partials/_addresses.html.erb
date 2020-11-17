@@ -1,6 +1,15 @@
-<h3>Address</h3>
-<% addressable.addresses.each do |address| %>
-<p>
-    <%= address.street_number + " " + address.street_name + " " + address.postcode + " " + address.state %>
-</p>
+<% if addressable.addresses.count == 1 %>
+    <h3 class="text-xl font-bold">Address</h3>
+    <p>
+    <%= addressable.addresses.first.street_number + " " + addressable.addresses.first.street_name + " " + addressable.addresses.first.postcode + " " + addressable.addresses.first.state %>
+    </p>
+<% elsif addressable.addresses.count == 2 %>
+    <h3 class="text-xl font-bold">Origin</h3>
+    <p>
+    <%= addressable.addresses.first.street_number + " " + addressable.addresses.first.street_name + " " + addressable.addresses.first.postcode + " " + addressable.addresses.first.state %>
+    </p>
+    <h3 class="text-xl font-bold">Destination</h3>
+    <p>
+    <%= addressable.addresses.second.street_number + " " + addressable.addresses.second.street_name + " " + addressable.addresses.second.postcode + " " + addressable.addresses.second.state %>
+    </p>
 <% end %>

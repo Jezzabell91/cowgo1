@@ -15,6 +15,16 @@
         @apply border-indigo-400;
     }
 
+    .link{
+      @apply text-blue-500;
+    }
+
+    .link:hover{
+      @apply underline;
+    }
+
+
+
     @screen lg {
         .nav-link {
         @apply p-4;
@@ -42,6 +52,29 @@
       .btn-transparent:hover {
         @apply bg-blue-500 text-white border-transparent rounded;
       }
+
+      .form {
+        @apply w-full rounded ;
+      }
+
+      .field {
+        @apply mb-6;
+      }
+
+      .label {
+        @apply block text-gray-500 font-bold mb-1 pr-4;
+      }
+
+      .input {
+        @apply block bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight;
+      }
+
+      .input:focus {
+        @apply outline-none bg-white border-purple-500;
+      }
+
+
+
 }
 
 /*! purgecss end ignore */
