@@ -122,3 +122,7 @@ users = [
     
     Job.find(6).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574', country: "Australia")
     Job.find(6).addresses.create(street_number: '11', street_name: 'Jackson Street', state: 'NSW', postcode: '2711', country: "Australia")
+
+
+    Job.last.addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574', country: "Australia")
+    Job.last.addresses.create(street_number: '11', street_name: 'Jackson Street', state: 'NSW', postcode: '2711', country: "Australia")

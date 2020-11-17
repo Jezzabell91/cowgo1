@@ -1,11 +1,20 @@
 class JobsController < ApplicationController
-    before_action :authenticate_user!, except: [:index, :show]  
-    before_action :set_users, only: [:show, :update, :edit, :new, :destroy]
-    before_action :set_job, only: [:show, :update, :edit, :destroy]
+    before_action :authenticate_user!, except: [:index]  
+    before_action :set_users, only: [:show, :update, :edit, :new, :destroy, :accept_job, :complete_job]
+    before_action :set_job, only: [:show, :update, :edit, :destroy, :accept_job, :complete_job]
 
 
     def index
-        @jobs = Job.all
+        @jobs = Job.where(accepted: false)
+        unless current_user.nil?
+            if current_user.transporter_role == true
+                @jobs = @jobs.select { |job| job.weight < current_user.capacity }
+                if @jobs.empty?
+                    flash.now[:alert] = 'There are no jobs that are available with your current capacity and range.'
+                end
+            end
+        end 
+        
     end
     
 
@@ -39,6 +48,21 @@ class JobsController < ApplicationController
         redirect_to users_jobs_path(current_user.id)
     end
 
+    def accept_job
+        if @job.users.count == 1
+          @job.update(accepted: true)
+          @job.users.push(current_user)
+          @job.save
+          redirect_to users_jobs_path(current_user.id)
+        else
+          redirect_to root_path  
+        end
+    end
+
+    def complete_job
+          @job.update(completed: true)
+          redirect_to users_jobs_path(current_user.id)
+    end
 
     private
 
