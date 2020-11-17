@@ -18,7 +18,7 @@
     </div>
         <strong>Job Poster:</strong>
 
-        <%= link_to profile_path(@job.users.last.id), class: "link" do %>
+        <%= link_to profile_path(@job.users.first.id), class: "link" do %>
             <%= @job.users.first.first_name.capitalize + " " + @job.users.first.last_name.capitalize %>
         <% end %>
 <br>

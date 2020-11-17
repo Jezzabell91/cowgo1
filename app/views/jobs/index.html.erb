@@ -1,1 +1,68 @@
-<h1>Hello</h1>
+
+<div class="max-w-3xl m-auto">
+    <h1 class="page-title">Available Jobs</h1>
+		<table class="w-full flex flex-row flex-no-wrap bg-white rounded-lg overflow-hidden shadow-lg my-5">
+			<thead class="text-white">
+                <tr class="bg-green-500 flex-col flex-no wrap table-row rounded-l-lg rounded-none mb-2">
+                  <th class="table-head">Created</th>
+                  <th class="table-head">Origin</th>
+                  <th class="table-head">Destination</th>
+                  <th class="table-head">View</th>
+              </tr>
+            </thead>
+
+
+
+			<tbody class="flex-1 ">
+
+                <% if current_user.transporter_role == true %>
+                    <% @jobs = @jobs.select { |job| job.weight < current_user.capacity } %>
+                    <% if @jobs.empty? == true %>
+                    <p class="text-white">
+                    <%= "There are no jobs that are available with your current capacity and range." %>
+                    </p>
+                    <% end %>
+                <% end %>
+
+                    <% @jobs.each do |job|   %>
+                    <tr class="table-rows">
+                        <td class="table-data">
+                            <%= link_to profile_path(job.users.first.id) do %>
+                            <% if job.users.first.profile_image.attached? %>
+                                <%= cl_image_tag(job.users.first.profile_image.key, class: 'inline rounded-full w-10 h-10 border-2 border-transparent hover:border-indigo-400', cloud_name: 'coderacademy',  :transformation=>[
+                                {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+                                {:width=>48, :crop=>"scale"}
+                                ]) %>
+                            <% end %>
+                        <% end %>
+                            <%= link_to profile_path(job.users.first.id), class: "link" do %>
+                            <%= job.users.first.first_name.capitalize + " " + job.users.first.last_name.capitalize %>
+                        <% end %>
+                        <%= " (" + job.created_at.strftime("%d %b") + ")"%></td>
+                        <td class="table-data truncate"><%= job.addresses.first.postcode + " " + job.addresses.first.state  %></td>
+                        <td class="table-data truncate"><%= job.addresses.second.postcode + " " + job.addresses.second.state %></td>
+                        <td class="table-data "><%= link_to 'View', job_path(job.id), class: "link"%></td>
+                    </tr>
+                    
+                    <% end %>
+
+
+
+			</tbody>
+		</table>
+
+    </div>
+
+<style>
+
+  @media (min-width: 480px) {
+    table {
+      display: inline-table !important;
+    }
+
+    thead tr:not(:first-child) {
+      display: none;
+    }
+  }
+
+</style>

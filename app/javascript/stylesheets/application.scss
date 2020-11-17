@@ -7,6 +7,7 @@
 
 @layer components{
 
+
     .nav-link{
         @apply py-3 px-0 block border-b-2 border-transparent;
     }
@@ -73,7 +74,26 @@
         @apply outline-none bg-white border-purple-500;
       }
 
+      .table-head {
+        @apply p-3 text-left;
+      }
 
+
+      .table-rows {
+        @apply flex-col flex-1 flex-wrap table-row mb-2; 
+      }
+
+      .table-rows:hover {
+        @apply bg-gray-100; 
+      }
+
+      .table-data {
+        @apply border p-3;
+      }
+
+      .page-title{
+        @apply text-3xl font-bold mb-6 text-white;
+      } 
 
 }
 
