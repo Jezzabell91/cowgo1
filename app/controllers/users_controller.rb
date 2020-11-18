@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
 before_action :get_user, only: [:profile, :create_profile, :edit_profile, :update_profile, :livestock_owner_role, :transporter_role, :choose_role, :create_address, :users_jobs]
-before_action :authenticate_user!, except: [:index, :show]  
+before_action :role_selected?, only: [:profile, :create_profile, :edit_profile, :update_profile, :choose_role, :create_address, :users_jobs]
+before_action :authenticate_user!, except: [:index, :show]
+
 
   def edit_profile
     if current_user && @user.id == current_user.id
@@ -77,6 +79,18 @@ before_action :authenticate_user!, except: [:index, :show]
     redirect_to root_path 
   end
 
+  def index
+    redirect_to root_path 
+  end
+
+  def create
+    redirect_to root_path 
+  end
+
+  def new
+    redirect_to redirect_to root_path 
+  end
+
   def edit
     
   end
@@ -96,6 +110,13 @@ before_action :authenticate_user!, except: [:index, :show]
 
 
   private 
+
+  # If user clicks away from the role selection screen they will be brought back to it 
+  def role_selected?
+    if current_user.transporter_role == false && current_user.livestock_owner_role == false
+      render 'choose_role'
+    end
+  end
 
   def get_user 
     @user = User.find(params[:id])

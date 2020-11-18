@@ -63,3 +63,5 @@ gem "activestorage-cloudinary-service", "~> 0.2.3"
 gem "inline_svg", "~> 1.7"
 
 gem "activerecord-reset-pk-sequence", "~> 0.2.1"
+
+gem "traceroute", "~> 0.8.1"

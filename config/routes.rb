@@ -1,20 +1,22 @@
 Rails.application.routes.draw do
 
-
-  
   devise_for :users, controllers: {
     sessions: 'users/sessions', registrations: 'registrations'
   }
 
   get 'home/index'
 
-  resources :users do 
-    resources :addresses, module: :users 
-  end
+  resources :users
+  get '/users/:user_id/addresses/new', to: 'users/addresses#new', as: 'user_addresses'
+  post '/users/:user_id/addresses/new', to: 'users/addresses#create'
 
-  resources :jobs do 
-    resources :addresses, module: :jobs 
-  end
+
+  
+  resources :jobs
+  get '/jobs/:job_id/addresses/new', to: 'jobs/addresses#new', as: 'job_addresses'
+  post '/jobs/:job_id/addresses/new', to: 'jobs/addresses#create'
+  
+  
 
   get 'users/profile/:id/choose_role', to: 'users#choose_role', as: "choose_role"
   post 'users/profile/:id/livestock_owner_role', to: 'users#livestock_owner_role'
@@ -27,8 +29,7 @@ Rails.application.routes.draw do
   patch 'users/profile/:id/edit', to: 'users#update_profile'
 
   get 'users/:id/jobs/', to: 'users#users_jobs', as: "users_jobs"
-  # get 'users/:user_id/jobs/:id', to: 'users#users_jobs', as: "users_job"
-  # get 'jobs/create', to: 'jobs#create', as: "create_job"
+
 
   post 'jobs/:id/accept_job', to: 'jobs#accept_job'
   post 'jobs/:id/complete_job', to: 'jobs#complete_job'

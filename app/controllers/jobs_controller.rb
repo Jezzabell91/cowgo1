@@ -38,9 +38,12 @@ class JobsController < ApplicationController
         redirect_to job_path(@job.id) 
     end
 
+    # If user didn't post the job they can't edit it 
     def edit 
         if current_user && @job.users.first.id == current_user.id
             render 'edit'
+        else
+            redirect_to root_path
         end
     end
 

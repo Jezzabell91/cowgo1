@@ -1,5 +1,5 @@
-<%= form_with(model: [addressable, Address.new], local: true, class: "form") do |form| %>
 
+<%= form_with(model: @job, url: edit_job_address_path, local: true, class: "form") do |form| %>
 <div class="field">
   <div class="label-div">
     <%= form.label :street_number, class: "label"  %>
@@ -18,17 +18,13 @@
 </div>
 </div>
 
-
 <div class="field">
   <div class="label-div">
   <%= form.label :state, class: "label"  %>
 </div>
-<%= form.select(:state) do %>
-  <% [['Queensland', 'QLD'], ['New South Wales', 'NSW'], ['Victoria', 'VIC'], ['Tasmania', 'TAS'], ['Australian Capital Territory', 'ACT'], ['Northern Territory', 'NT'], ['South Australia', 'SA'], ['Western Australia', 'WA']].each do |c| -%>
-    <%= content_tag(:option, c.first, value: c.last) %>
-  <% end %>
-<% end %>
-
+<div class="input-div">
+<%= form.text_field :state, placeholder: "State", required: true, class: "input" %>
+</div>
 </div>
 
 
@@ -37,7 +33,7 @@
   <%= form.label :postcode, class: "label"  %>
 </div>
 <div class="input-div">
-<%= form.text_field :postcode, placeholder: "Postcode", required: true, class: "input", pattern: '\d{4}' %>
+<%= form.text_field :postcode, placeholder: "Postcode", required: true, class: "input" %>
 </div>
 </div>
 
@@ -61,4 +57,3 @@
 
 
 <% end %>
-
