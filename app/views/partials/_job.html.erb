@@ -43,7 +43,7 @@
   <%= origin_form.label :street_name, class: "label"  %>
 </div>
 <div class="input-div">
-<%= origin_form.text_field :street_name, placeholder: "Street Name", required: true, class: "input", pattern: '/^+\s[A-z]+\s[A-z]+/' %>
+<%= origin_form.text_field :street_name, placeholder: "Street Name", required: true, class: "input", pattern: '\s?[a-zA-Z]+\s[a-zA-Z]+' %>
 </div>
 </div>
 
@@ -67,7 +67,7 @@
   <%= origin_form.label :postcode, class: "label"  %>
 </div>
 <div class="input-div">
-<%= origin_form.text_field :postcode, placeholder: "Enter a 4 digit postcode", required: true, class: "input", pattern: '\d+' %>
+<%= origin_form.text_field :postcode, placeholder: "Enter a 4 digit postcode", required: true, class: "input", pattern: '\d{4}' %>
 </div>
 </div>
 
@@ -83,7 +83,7 @@
     <%= destination_form.label :street_number, class: "label"  %>
   </div>
   <div class="input-div">
-    <%= destination_form.text_field :street_number, placeholder: "Street Number", required: true, class: "input" %>
+    <%= destination_form.text_field :street_number, placeholder: "Street Number", required: true, class: "input", pattern: '\d+' %>
   </div>
 </div>
 
@@ -92,7 +92,7 @@
   <%= destination_form.label :street_name, class: "label"  %>
 </div>
 <div class="input-div">
-<%= destination_form.text_field :street_name, placeholder: "Street Name", required: true, class: "input", pattern: '/^+\s[A-z]+\s[A-z]+/' %>
+<%= destination_form.text_field :street_name, placeholder: "Street Name", required: true, class: "input", pattern: '\s?[a-zA-Z]+\s[a-zA-Z]+' %>
 </div>
 </div>
 

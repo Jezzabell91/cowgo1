@@ -14,7 +14,7 @@
   <%= form.label :street_name, class: "label"  %>
 </div>
 <div class="input-div">
-<%= form.text_field :street_name, placeholder: "Street Name", required: true, class: "input", pattern: '/^+\s[A-z]+\s[A-z]+/' %>
+<%= form.text_field :street_name, placeholder: "Street Name", required: true, class: "input", pattern: '\s?[a-zA-Z]+\s[a-zA-Z]+' %>
 </div>
 </div>
 

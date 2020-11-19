@@ -112,8 +112,9 @@ _R13. Wireframes for your app_
 ![CowGo Available Jobs Page](https://i.imgur.com/0UcEsir.png)
 ---
 
-_R14. ERD for your app_
-## Entity Relationship Diagram 
+_R14. ERD for your app_ AND
+_R19. Provide your database schema design_ 
+## Entity Relationship Diagram / Schema design
 ![CowGo Entity Relationship Diagram](https://i.imgur.com/J79ChBR.png)
 
 ---
