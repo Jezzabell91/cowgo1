@@ -114,7 +114,7 @@ _R13. Wireframes for your app_
 
 _R14. ERD for your app_
 ## Entity Relationship Diagram 
-![CowGo Entity Relationship Diagram](https://i.imgur.com/3KRZZv2.png)
+![CowGo Entity Relationship Diagram](https://i.imgur.com/K8VNtLr.png)
 
 ---
 
@@ -139,40 +139,6 @@ Google Geocoding
 --- 
 
 _R17. Describe your projects models in terms of the relationships (active record associations) they have with each other_
-
-<!-- Without Polymorphic Association -->
-
-User
-has_one :address
-has_one :role
-has_many :jobs, through: :user_jobs
-
-Role
-belongs_to :user
-
-UserJob
-belongs_to :user
-belongs_to :jobs
-
-Job
-has_many :users, through: :user_jobs
-has_one :start, through: :addresses
-has_one :end, through: :addresses
-
-Start
-belongs_to :addresses
-belongs_to :jobs
-
-End
-belongs_to :addresses
-belongs_to :jobs
-
-Address
-belongs_to :user
-has_many :jobs, through: :start
-
-
-
 
 <!-- With Polymorphic Association -->
 

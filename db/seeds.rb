@@ -58,7 +58,6 @@ users = [
         company: "Cartman's Chilli", 
         website: "cartmanschilli.fake",
         capacity: 25000,
-        range: 3000,
         description: "I'm not fat, I'm festively plump!"
     },    
     {
@@ -71,7 +70,6 @@ users = [
         company: "Kenny's Clubhouse", 
         website: "kennysclubhouse.fake",
         capacity: 10000,
-        range: 3500,
         description: "At the dawn of war, I stand alone, looking out at what would be the last battlefield, for winter is coming and I am a princess..."
     },
     {
@@ -84,7 +82,6 @@ users = [
         company: "Token's Ranch", 
         website: "tokensranch.fake",
         capacity: 30000,
-        range: 2000, 
         description: "Please God, send more rich kids to my town..."
     }
 ]

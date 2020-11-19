@@ -8,9 +8,12 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :users
+  get '/users/:user_id/addresses/new', to: 'users/addresses#new', as: 'user_addresses'
+  post '/users/:user_id/addresses/new', to: 'users/addresses#create'
 
   resources :jobs
-  
+  get '/jobs/:job_id/addresses/new', to: 'jobs/addresses#new', as: 'job_addresses'
+  post '/jobs/:job_id/addresses/new', to: 'jobs/addresses#create'
 
   get 'users/profile/:id/choose_role', to: 'users#choose_role', as: "choose_role"
   post 'users/profile/:id/livestock_owner_role', to: 'users#livestock_owner_role'

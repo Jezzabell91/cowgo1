@@ -44,7 +44,7 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def choose_role
     if current_user && @user.id == current_user.id
-      render 'choose_role'
+        render 'choose_role'
     else
       redirect_to root_path  
     end
@@ -52,7 +52,11 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def livestock_owner_role
     if current_user && @user.id == current_user.id
+      if current_user.transporter_role == true || current_user.livestock_owner_role == true
+        flash.now[:alert] = 'You have already chosen a role'
+      else
       @user.update(livestock_owner_role: true)
+      end
       render 'edit_profile'
     else
       redirect_to root_path  
@@ -61,7 +65,11 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def transporter_role
     if current_user && @user.id == current_user.id
+      if current_user.transporter_role == true || current_user.livestock_owner_role == true
+        flash.now[:alert] = 'You have already chosen a role'
+      else
       @user.update(transporter_role: true)
+      end
       render 'edit_profile'
     else
       redirect_to root_path  

@@ -7,10 +7,10 @@ class JobsController < ApplicationController
     def index
         @jobs = Job.where(accepted: false)
         unless current_user.nil?
-            if current_user.transporter_role == true
+            if current_user.transporter_role == true && current_user.capacity.nil? == false
                 @jobs = @jobs.select { |job| job.weight < current_user.capacity }
                 if @jobs.empty?
-                    flash.now[:alert] = 'There are no jobs that are available with your current capacity and range.'
+                    flash.now[:alert] = 'There are no jobs that are available with your current capacity'
                 end
             end
         end 
