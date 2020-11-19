@@ -22,7 +22,12 @@ before_action :authenticate_user!, except: [:index, :show]
 
   def create_address
     if current_user && @user.id == current_user.id
-      render 'create_address'
+      # If user already has an address don't let them try to add another one
+      if @user.addresses.empty?
+        render 'create_address'
+      else
+        redirect_to root_path  
+      end
     else
       redirect_to root_path  
     end
@@ -92,7 +97,7 @@ before_action :authenticate_user!, except: [:index, :show]
   end
 
   def edit
-    
+    redirect_to action: 'edit_profile'
   end
 
   def update
@@ -113,8 +118,10 @@ before_action :authenticate_user!, except: [:index, :show]
 
   # If user clicks away from the role selection screen they will be brought back to it 
   def role_selected?
-    if current_user.transporter_role == false && current_user.livestock_owner_role == false
-      render 'choose_role'
+    if current_user
+      if current_user.transporter_role == false && current_user.livestock_owner_role == false
+        render 'choose_role'
+      end
     end
   end
 

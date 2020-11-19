@@ -57,7 +57,7 @@ users = [
         transporter_role: "true", 
         company: "Cartman's Chilli", 
         website: "cartmanschilli.fake",
-        capacity: 50,
+        capacity: 25000,
         range: 3000,
         description: "I'm not fat, I'm festively plump!"
     },    
@@ -70,7 +70,7 @@ users = [
         transporter_role: "true", 
         company: "Kenny's Clubhouse", 
         website: "kennysclubhouse.fake",
-        capacity: 10,
+        capacity: 10000,
         range: 3500,
         description: "At the dawn of war, I stand alone, looking out at what would be the last battlefield, for winter is coming and I am a princess..."
     },
@@ -83,7 +83,7 @@ users = [
         transporter_role: "true", 
         company: "Token's Ranch", 
         website: "tokensranch.fake",
-        capacity: 20,
+        capacity: 30000,
         range: 2000, 
         description: "Please God, send more rich kids to my town..."
     }
