@@ -1,6 +1,6 @@
 <div class="max-w-lg m-auto">
     <h1 class="text-3xl font-bold mb-6 text-white">Edit your Job</h1>
-        <%= render partial: "partials/job" %> 
+        <%= render partial: "partials/job_edit" %> 
 
         <% if current_user.id == @job.users.first.id %>
         <div class="md:flex md:items-center mt-4">

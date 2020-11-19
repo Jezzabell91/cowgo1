@@ -47,8 +47,9 @@ Livestock owners can use the job form to input a job filling in required details
 If the transporter accepts the job it becomes a contract. The livestock owner is notified that the contract has been accepted and they are prompted to make a payment using Stripe to the transporter. At the contracted time and date, the transporter picks up the cargo at the origin and transports it to the destination. The transporter marks the contract as complete and the livestock owner is notified. The livestock owner must then leave a rating and feedback for the completed job.
 
 ### Sitemap
+![Sitemap](https://i.imgur.com/HhHMI0Q.png)
 
-This is the sitemap…
+Sitemap was made with the help of the sitemap_generator gem and [https://octopus.do/](https://octopus.do/)
 
 ### Screenshots
 
@@ -101,12 +102,20 @@ _R12. User stories for your app_
 
 
 _R13. Wireframes for your app_
+## Landing Page 
+![CowGo Landing Page](https://i.imgur.com/O9J2uH3.png)
 
+## Sign Up Page 
+![CowGo Sign Up Page](https://i.imgur.com/4YGrIbg.png)
+
+## Available Jobs Page 
+![CowGo Available Jobs Page](https://i.imgur.com/0UcEsir.png)
 ---
 
-_R14. ERD for your app_
-## Entity Relationship Diagram 
-![CowGo Entity Relationship Diagram](https://i.imgur.com/3KRZZv2.png)
+_R14. ERD for your app_ AND
+_R19. Provide your database schema design_ 
+## Entity Relationship Diagram / Schema design
+![CowGo Entity Relationship Diagram](https://i.imgur.com/J79ChBR.png)
 
 ---
 
@@ -131,40 +140,6 @@ Google Geocoding
 --- 
 
 _R17. Describe your projects models in terms of the relationships (active record associations) they have with each other_
-
-<!-- Without Polymorphic Association -->
-
-User
-has_one :address
-has_one :role
-has_many :jobs, through: :user_jobs
-
-Role
-belongs_to :user
-
-UserJob
-belongs_to :user
-belongs_to :jobs
-
-Job
-has_many :users, through: :user_jobs
-has_one :start, through: :addresses
-has_one :end, through: :addresses
-
-Start
-belongs_to :addresses
-belongs_to :jobs
-
-End
-belongs_to :addresses
-belongs_to :jobs
-
-Address
-belongs_to :user
-has_many :jobs, through: :start
-
-
-
 
 <!-- With Polymorphic Association -->
 

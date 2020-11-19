@@ -57,8 +57,7 @@ users = [
         transporter_role: "true", 
         company: "Cartman's Chilli", 
         website: "cartmanschilli.fake",
-        capacity: 50,
-        range: 3000,
+        capacity: 25000,
         description: "I'm not fat, I'm festively plump!"
     },    
     {
@@ -70,8 +69,7 @@ users = [
         transporter_role: "true", 
         company: "Kenny's Clubhouse", 
         website: "kennysclubhouse.fake",
-        capacity: 10,
-        range: 3500,
+        capacity: 10000,
         description: "At the dawn of war, I stand alone, looking out at what would be the last battlefield, for winter is coming and I am a princess..."
     },
     {
@@ -83,20 +81,19 @@ users = [
         transporter_role: "true", 
         company: "Token's Ranch", 
         website: "tokensranch.fake",
-        capacity: 20,
-        range: 2000, 
+        capacity: 30000,
         description: "Please God, send more rich kids to my town..."
     }
 ]
 
     User.create(users)
 
-    User.find(1).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574', country: "Australia")
-    User.find(2).addresses.create(street_number: '145', street_name: 'Wagoo Road', state: 'QLD', postcode: '4487', country: "Australia")
-    User.find(3).addresses.create(street_number: '11', street_name: 'Jackson Street', state: 'NSW', postcode: '2711', country: "Australia")
-    User.find(4).addresses.create(street_number: '9', street_name: 'Culgoa Street', state: 'NSW', postcode: '2840', country: "Australia")
-    User.find(5).addresses.create(street_number: '26', street_name: 'Gordon Street', state: 'VIC', postcode: '3537', country: "Australia")
-    User.find(6).addresses.create(street_number: '261', street_name: 'Carinda Road', state: 'NSW', postcode: '2829', country: "Australia")
+    User.find(1).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574')
+    User.find(2).addresses.create(street_number: '145', street_name: 'Wagoo Road', state: 'QLD', postcode: '4487')
+    User.find(3).addresses.create(street_number: '11', street_name: 'Jackson Street', state: 'NSW', postcode: '2711')
+    User.find(4).addresses.create(street_number: '9', street_name: 'Culgoa Street', state: 'NSW', postcode: '2840')
+    User.find(5).addresses.create(street_number: '26', street_name: 'Gordon Street', state: 'VIC', postcode: '3537')
+    User.find(6).addresses.create(street_number: '261', street_name: 'Carinda Road', state: 'NSW', postcode: '2829')
 
     User.find(1).jobs.create(head: 25, weight: 12200, instructions: 'I need to relocate my herd of herefords')
     User.find(1).jobs.create(head: 8, weight: 3020, instructions: 'I bought eight charloais heifers and I need them brought to my farm')
@@ -105,24 +102,20 @@ users = [
     User.find(2).jobs.create(head: 12, weight: 4300, instructions: 'I just sold these dairy shorthorns to a buyer and we need someone to provide transport')
     User.find(3).jobs.create(head: 28, weight: 22000, instructions: 'I purchased a herd of charbrays and need them brought to me')
 
-    Job.find(1).addresses.create(street_number: '45', street_name: 'Town Common Road', state: 'QLD', postcode: '4390', country: "Australia")
-    Job.find(1).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574', country: "Australia")
+    Job.find(1).addresses.create(street_number: '45', street_name: 'Town Common Road', state: 'QLD', postcode: '4390')
+    Job.find(1).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574')
 
-    Job.find(2).addresses.create(street_number: '495', street_name: 'Backmede Road', state: 'NSW', postcode: '2470', country: "Australia")
-    Job.find(2).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574', country: "Australia")
+    Job.find(2).addresses.create(street_number: '495', street_name: 'Backmede Road', state: 'NSW', postcode: '2470')
+    Job.find(2).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574')
 
-    Job.find(3).addresses.create(street_number: '512', street_name: 'Kildonan Road', state: 'QLD', postcode: '4390', country: "Australia")
-    Job.find(3).addresses.create(street_number: '14', street_name: 'Swanfels Road', state: 'QLD', postcode: '4371', country: "Australia")
+    Job.find(3).addresses.create(street_number: '512', street_name: 'Kildonan Road', state: 'QLD', postcode: '4390')
+    Job.find(3).addresses.create(street_number: '14', street_name: 'Swanfels Road', state: 'QLD', postcode: '4371')
 
-    Job.find(4).addresses.create(street_number: 'Lot 13', street_name: 'Macquarie Drive', state: 'QLD', postcode: '4365', country: "Australia")
-    Job.find(4).addresses.create(street_number: '145', street_name: 'Wagoo Road', state: 'QLD', postcode: '4487', country: "Australia")
+    Job.find(4).addresses.create(street_number: 'Lot 13', street_name: 'Macquarie Drive', state: 'QLD', postcode: '4365')
+    Job.find(4).addresses.create(street_number: '145', street_name: 'Wagoo Road', state: 'QLD', postcode: '4487')
 
-    Job.find(5).addresses.create(street_number: '145', street_name: 'Wagoo Road', state: 'QLD', postcode: '4487', country: "Australia")
-    Job.find(5).addresses.create(street_number: '284', street_name: 'Condamine Meandarra Road', state: 'QLD', postcode: '4416', country: "Australia")
+    Job.find(5).addresses.create(street_number: '145', street_name: 'Wagoo Road', state: 'QLD', postcode: '4487')
+    Job.find(5).addresses.create(street_number: '284', street_name: 'Condamine Meandarra Road', state: 'QLD', postcode: '4416')
     
-    Job.find(6).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574', country: "Australia")
-    Job.find(6).addresses.create(street_number: '11', street_name: 'Jackson Street', state: 'NSW', postcode: '2711', country: "Australia")
-
-
-    Job.last.addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574', country: "Australia")
-    Job.last.addresses.create(street_number: '11', street_name: 'Jackson Street', state: 'NSW', postcode: '2711', country: "Australia")
+    Job.find(6).addresses.create(street_number: '84', street_name: 'Falls Creek Road', state: 'QLD', postcode: '4574')
+    Job.find(6).addresses.create(street_number: '11', street_name: 'Jackson Street', state: 'NSW', postcode: '2711')

@@ -7,10 +7,10 @@ class JobsController < ApplicationController
     def index
         @jobs = Job.where(accepted: false)
         unless current_user.nil?
-            if current_user.transporter_role == true
+            if current_user.transporter_role == true && current_user.capacity.nil? == false
                 @jobs = @jobs.select { |job| job.weight < current_user.capacity }
                 if @jobs.empty?
-                    flash.now[:alert] = 'There are no jobs that are available with your current capacity and range.'
+                    flash.now[:alert] = 'There are no jobs that are available with your current capacity'
                 end
             end
         end 
@@ -38,9 +38,12 @@ class JobsController < ApplicationController
         redirect_to job_path(@job.id) 
     end
 
+    # If user didn't post the job they can't edit it 
     def edit 
         if current_user && @job.users.first.id == current_user.id
             render 'edit'
+        else
+            redirect_to root_path
         end
     end
 
@@ -83,7 +86,7 @@ class JobsController < ApplicationController
             :weight,
             :instructions,
             user_ids: [],
-            addresses_attributes: [ :job_id, :street_number, :street_name, :state, :postcode, :country]
+            addresses_attributes: [ :job_id, :street_number, :street_name, :state, :postcode]
         )
     end
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_17_070223) do
+ActiveRecord::Schema.define(version: 2020_11_19_021809) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,6 @@ ActiveRecord::Schema.define(version: 2020_11_17_070223) do
     t.string "street_name"
     t.string "state"
     t.string "postcode"
-    t.string "country", default: "Australia"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["addressable_type", "addressable_id"], name: "index_addresses_on_addressable_type_and_addressable_id"
@@ -71,18 +70,15 @@ ActiveRecord::Schema.define(version: 2020_11_17_070223) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "company"
-    t.string "website"
-    t.string "description"
-    t.string "profile_image"
-    t.integer "capacity"
-    t.integer "range"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.boolean "admin_role", default: false
     t.boolean "transporter_role", default: false
     t.boolean "livestock_owner_role", default: false
+    t.string "company", default: ""
+    t.string "website", default: ""
+    t.string "description", default: ""
+    t.integer "capacity", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

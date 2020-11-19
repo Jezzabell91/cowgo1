@@ -34,7 +34,7 @@
     <%= origin_form.label :street_number, class: "label"  %>
   </div>
   <div class="input-div">
-    <%= origin_form.text_field :street_number, placeholder: "Street Number", required: true, class: "input" %>
+    <%= origin_form.text_field :street_number, placeholder: "Street Number", required: true, class: "input", pattern: '\d+' %>
   </div>
 </div>
 
@@ -43,18 +43,23 @@
   <%= origin_form.label :street_name, class: "label"  %>
 </div>
 <div class="input-div">
-<%= origin_form.text_field :street_name, placeholder: "Street Name", required: true, class: "input" %>
+<%= origin_form.text_field :street_name, placeholder: "Street Name", required: true, class: "input", pattern: '\s?[a-zA-Z]+\s[a-zA-Z]+' %>
 </div>
 </div>
+
+
 
 <div class="field">
   <div class="label-div">
   <%= origin_form.label :state, class: "label"  %>
 </div>
-<div class="input-div">
-<%= origin_form.text_field :state, placeholder: "State", required: true, class: "input" %>
+<%= origin_form.select(:state) do %>
+  <% [['Queensland', 'QLD'], ['New South Wales', 'NSW'], ['Victoria', 'VIC'], ['Tasmania', 'TAS'], ['Australian Capital Territory', 'ACT'], ['Northern Territory', 'NT'], ['South Australia', 'SA'], ['Western Australia', 'WA']].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %>
+  <% end %>
+<% end %>
 </div>
-</div>
+
 
 
 <div class="field">
@@ -62,19 +67,12 @@
   <%= origin_form.label :postcode, class: "label"  %>
 </div>
 <div class="input-div">
-<%= origin_form.text_field :postcode, placeholder: "Postcode", required: true, class: "input" %>
+<%= origin_form.text_field :postcode, placeholder: "Enter a 4 digit postcode", required: true, class: "input", pattern: '\d{4}' %>
 </div>
 </div>
 
 
-<div class="field">
-  <div class="label-div">
-    <%= origin_form.label :country, class: "label"  %>
-  </div>
-  <div class="input-div">
-  <%= origin_form.text_field :country, placeholder: "Country", required: true, class: "input" %>
-</div>
-</div>
+
 
 <% end %>
 
@@ -85,7 +83,7 @@
     <%= destination_form.label :street_number, class: "label"  %>
   </div>
   <div class="input-div">
-    <%= destination_form.text_field :street_number, placeholder: "Street Number", required: true, class: "input" %>
+    <%= destination_form.text_field :street_number, placeholder: "Street Number", required: true, class: "input", pattern: '\d+' %>
   </div>
 </div>
 
@@ -94,7 +92,7 @@
   <%= destination_form.label :street_name, class: "label"  %>
 </div>
 <div class="input-div">
-<%= destination_form.text_field :street_name, placeholder: "Street Name", required: true, class: "input" %>
+<%= destination_form.text_field :street_name, placeholder: "Street Name", required: true, class: "input", pattern: '\s?[a-zA-Z]+\s[a-zA-Z]+' %>
 </div>
 </div>
 
@@ -102,9 +100,11 @@
   <div class="label-div">
   <%= destination_form.label :state, class: "label"  %>
 </div>
-<div class="input-div">
-<%= destination_form.text_field :state, placeholder: "State", required: true, class: "input" %>
-</div>
+<%= destination_form.select(:state) do %>
+  <% [['Queensland', 'QLD'], ['New South Wales', 'NSW'], ['Victoria', 'VIC'], ['Tasmania', 'TAS'], ['Australian Capital Territory', 'ACT'], ['Northern Territory', 'NT'], ['South Australia', 'SA'], ['Western Australia', 'WA']].each do |c| -%>
+    <%= content_tag(:option, c.first, value: c.last) %>
+  <% end %>
+<% end %>
 </div>
 
 
@@ -113,19 +113,10 @@
   <%= destination_form.label :postcode, class: "label"  %>
 </div>
 <div class="input-div">
-<%= destination_form.text_field :postcode, placeholder: "Postcode", required: true, class: "input" %>
+<%= destination_form.text_field :postcode, placeholder: "Enter a 4 digit postcode", required: true, class: "input", pattern: '\d{4}' %>
 </div>
 </div>
 
-
-<div class="field">
-  <div class="label-div">
-    <%= destination_form.label :country, class: "label"  %>
-  </div>
-  <div class="input-div">
-  <%= destination_form.text_field :country, placeholder: "Country", required: true, class: "input" %>
-</div>
-</div>
 
 <% end %>
 

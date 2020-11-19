@@ -6,7 +6,6 @@ class CreateAddresses < ActiveRecord::Migration[6.0]
       t.string :street_name
       t.string :state
       t.string :postcode
-      t.string :country, default: "Australia"
 
       t.timestamps
     end

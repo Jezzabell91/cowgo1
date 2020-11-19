@@ -51,10 +51,8 @@
             <%= render partial: "partials/addresses", locals: {addressable: @job} %>
             <br>
             
-            <% if current_user.id == @job.users.first.id && current_user.livestock_owner_role == true%>
-            <%= link_to "Edit Job", edit_job_path, class:"link" %> |    
-            <%= link_to "Edit Origin", edit_job_path, class:"link" %> |
-                <%= link_to "Edit Destination", edit_job_path, class:"link" %>
+            <% if current_user.id == @job.users.first.id && current_user.livestock_owner_role == true && @job.accepted == false && @job.completed == false%>
+            <%= link_to "Edit Job", edit_job_path, class:"link" %>  
             <% end %>
 
             <% if current_user.transporter_role == true %>
