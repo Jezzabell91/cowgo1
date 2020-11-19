@@ -1,4 +1,6 @@
 class AddressesController < ApplicationController
+# AddressesController is the super class for Users::AddressesController and Jobs::AddressesController
+# @addressable becomes a user or a job depending on which subclass 
 
     def new
         @address = @addressable.addresses.new
@@ -12,6 +14,7 @@ class AddressesController < ApplicationController
 
     private
 
+    #Sanitize address parameters
     def address_params
         params.require(:address).permit(:street_number, :street_name, :state, :postcode)
     end

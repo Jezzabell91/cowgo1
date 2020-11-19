@@ -1,4 +1,5 @@
 class Users::AddressesController < AddressesController
+    # sets @addressable to a user 
     before_action :set_addressable
 
     private

@@ -58,7 +58,9 @@ Sitemap was made with the help of the sitemap_generator gem and [https://octopus
 
 ### Screenshots
 
-Enjoy some screen shots
+![Available Jobs Page](https://i.imgur.com/jyhtdlt.png)
+
+![Specific Job Details](https://i.imgur.com/CW5QTQc.png)
 
 ### Target Audience
 
@@ -83,39 +85,28 @@ _R12. User stories for your app_
 
 ## User Stories
 
-|     **Epic**            |     **User** Story                                                                                                                                       |
-|---------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-|     Registration    |     As a livestock owner I want to   create an account with CowGo so that I can find someone to transport my cows                                    |
-|                     |     As a transporter I want to join   CowGo so that I can earn extra income                                                                          |
-|                     |     As a registered user I want to be   able to delete my account because I am no longer interested in CowGo                                         |
-|     Profile         |     As a registered user I want to be   able to display a picture on my profile                                                                      |
-|                     |     As a livestock owner I want transporters   to be able to see my public profile when I send them a job request                                    |
-|                     |     As a transporter I want to be able   to show feedback from previous jobs in my profile                                                           |
-|                     |     As a transporter I want to be able   to add details such as truck model, truck capacity and availability to my   profile                         |
-|                     |     As a livestock owner I want to be   able to edit my profile so that it shows my details                                                          |
-|     Jobs            |     As a livestock owner I want to   enter a job and get a list of the closest available transporters                                                |
-|                     |     As a livestock owner I want to be   able to view a map with the locations of the listed available transporters                                   |
-|                     |     As a livestock owner I want to be   able to view the profiles of the listed available transporters                                               |
-|                     |     As a livestock owner I want to be   able to send a job request to the transporter I choose                                                       |
-|                     |     As a transporter I want to receive   job requests with all the relevant details of the job                                                       |
-|                     |     As a transporter I want to be able   to let the livestock owner know when the job has been completed                                             |
-|                     |     As a livestock owner I want to   provide a rating and feedback to the transporter                                                                |
-|     Contract        |     As a transporter I want the web   app to automatically calculate a quote to show based on total distance   travelled and estimated time frame    |
-|                     |     As a transporter I want to be able   to accept or decline the job                                                                                |
-|                     |     As a transporter I want to be   notified when a job request is made to me                                                                        |
-|                     |     As a livestock owner I want to be   notified when my job request is accepted or declined                                                         |
-|     Site            |     As a user I want to know how the   process works                                                                                                 |
-|                     |     As a user I want to know about the   CowGo company                                                                                               |
-|                     |     As a user I want to know the   answers to commonly asked questions                                                                               |
-|     Login           |     As a user I want to be able to   reset my password if I forget it                                                                                |
-|     Support         |     As livestock owner I want to be   able to contact CowGo support if there are any problems                                                        |
-|                     |     As a transporter I want to be able   to contact CowGo support if there are any problems                                                          |
-|                     |     As the support team of CowGo I   want to be able lock the account of any user that has breached terms and   conditions                           |
-|                     |     As the support team of CowGo I   want to be able moderate the profiles of any user                                                               |
-|                     |     As the support team of CowGo I   want to be able moderate the ratings and feedback provided after jobs are   completed                           |
-|     Payment         |     As a livestock owner I want to pay   via credit card when the transporter agrees to do the job                                                   |
-|                     |     As the owner of CowGo I want to   receive a fee from every payment made                                                                          |
-
+|     **Epic**            |     **User Story**                                                                                                         |
+|---------------------|------------------------------------------------------------------------------------------------------------------------|
+|     Registration    |     As a livestock owner I want to   create an account with CowGo so that I can find someone to transport my cows      |
+|                     |     As a transporter I want to join   CowGo so that I can earn extra income                                            |
+|                     |     As a registered user I want to be   able to delete my account because I am no longer interested in CowGo           |
+|     Profile         |     As a registered user I want to be   able to display a picture on my profile                                        |
+|                     |     As a livestock owner I want transporters   to be able to see my public profile when I send them a job request      |
+|                     |     As a transporter I want to be able   to add details such as truck capacity                                         |
+|                     |     As a livestock owner I want to be   able to edit my profile so that it shows my details                            |
+|     Jobs            |     As a livestock owner I want to   enter a job and get a list of the closest available transporters                  |
+|                     |     As a livestock owner I want to be   able to view a map with the locations of the listed available transporters     |
+|                     |     As a livestock owner I want to be   able to view the profiles of the listed available transporters                 |
+|                     |     As a transporter I want to be able   to let the livestock owner know when the job has been completed               |
+|                     |     As a livestock owner I want to   provide a rating and feedback to the transporter                                  |
+|                     |     As a transporter I want to be able   to accept or decline the job                                                  |
+|                     |     As a livestock owner I want to be   notified when my job request is accepted or declined                           |
+|     Site            |     As a user I want to know how the   process works                                                                   |
+|                     |     As a user I want to know about the   CowGo company                                                                 |
+|                     |     As a user I want to know the   answers to commonly asked questions                                                 |
+|     Login           |     As a user I want to be able to   reset my password if I forget it                                                  |
+|     Payment         |     As a livestock owner I want to pay   via credit card when the transporter agrees to do the job                     |
+|                     |     As the owner of CowGo I want to   receive a fee from every payment made                                            |
 <br>
 
 --- 
@@ -141,16 +132,43 @@ _R13. Wireframes for your app_
 _R14. ERD for your app_
 
 ## Entity Relationship Diagram
-![CowGo Entity Relationship Diagram](https://i.imgur.com/J79ChBR.png)
+![CowGo Entity Relationship Diagram](https://i.imgur.com/i4BRdUL.png)
+
+
 
 
 _R19. Provide your database schema design_ 
 
 ## Schema design ##
-![CowGo Schema Design](https://i.imgur.com/2rrLNjm.png)
----
+![CowGo Schema Design](https://i.imgur.com/v2eT6XK.png)
+
+<br>
+
+--- 
+
+<br>
 
 _R15. Explain the different high-level components (abstractions) in your app_
+
+
+CowGo is developed using Ruby on Rails which utilises the MVC architecture pattern. The controller works in the middle and retrieves information from the databases via the model and passes this information to the view. An example in CowGo is the index action in the jobs controller. 
+
+```ruby
+# Shows Available Jobs 
+def index
+    @jobs = Job.where(accepted: false)
+        if current_user.transporter_role == true && current_user.capacity.nil? == false
+            @jobs = @jobs.select { |job| job.weight <= current_user.capacity }
+            if @jobs.empty?
+
+                flash.now[:alert] = 'There are no jobs that are available with your current capacity'
+            end
+        end
+    end 
+end
+```
+
+The controller queries the database and an array of jobs that have not been accepted is stored in the @jobs variable. Another query is sent to the database to validate that the current user is a transporter and has a non nil capacity, this query and many others in CowGo could be improved with more efficient query methods like join, preload and eager_load. The @jobs variable is then reduced by selecting only the jobs which match the criteria of the estimated job weight being less than or equal to the capacity of the transporter. This information is then passed to the jobs/index view via rails use of implicit render. In rails if RESTful routes and actions are used the controller will render the view associated with the action if no other view is specified.      
 
 <br>
 
@@ -246,6 +264,29 @@ The Address relation has fields for Address id, addressable_type ("User" or "Job
 --- 
 
 <br>
+
+_R20. Describe the way tasks are allocated and tracked in your project_
+
+## Task Allocation
+
+Tasks were allocated on what was a need to have (required) for the mvp (green), what should be included but not quite essential (orange) and things that would be nice to have but not required for this sprint (blue). Checklists were used extensively to track tasks. Almost every task was derived from a user story. 
+
+## Trello Board
+
+
+![Trello 1](https://i.imgur.com/UkgEbEV.png)
+
+![Trello 2](https://i.imgur.com/xcFSYH3.png)
+
+![Trello 3](https://i.imgur.com/FIMUHfk.png)
+
+
+<br>
+
+--- 
+
+<br>
+
 
 ## Resources
 
