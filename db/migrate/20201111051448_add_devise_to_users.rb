@@ -8,12 +8,10 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
       t.string :encrypted_password, null: false, default: ""
       t.string :first_name, null: false, default: ""
       t.string :last_name, null: false, default: ""
-      t.string :company
-      t.string :website
-      t.string :description
-      t.string :profile_image
-      t.integer :capacity
-      t.integer :range
+      t.string :company, default: ""
+      t.string :website, default: ""
+      t.string :description, default: ""
+      t.integer :capacity, default: 0
       
       ## Recoverable
       t.string   :reset_password_token

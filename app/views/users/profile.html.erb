@@ -35,17 +35,17 @@
             <%= render partial: "partials/addresses", locals: {addressable: @user} %>
             </div>
 
-            <% unless @user.company.nil? %>
+            
             <div class="mb-2 text-gray-700 mt-10">
               Company: <%= @user.company.capitalize %>
             </div>
-            <% end %>
 
-            <% unless @user.website.nil? %>
+
+
             <div class="mb-2 text-gray-700 mt-10">
               Website: <%= @user.website %>
             </div>
-            <% end %>
+
 
             <% if @user.transporter_role == true %>
             <div class="mb-2 text-gray-700">

@@ -86,7 +86,7 @@ class JobsController < ApplicationController
             :weight,
             :instructions,
             user_ids: [],
-            addresses_attributes: [ :job_id, :street_number, :street_name, :state, :postcode, :country]
+            addresses_attributes: [ :job_id, :street_number, :street_name, :state, :postcode]
         )
     end
 
