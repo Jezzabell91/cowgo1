@@ -14,7 +14,6 @@ class AddressesController < ApplicationController
 
     private
 
-    #Sanitize address parameters
     def address_params
         params.require(:address).permit(:street_number, :street_name, :state, :postcode)
     end
