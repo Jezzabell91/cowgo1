@@ -114,7 +114,7 @@ _R13. Wireframes for your app_
 
 _R14. ERD for your app_
 ## Entity Relationship Diagram 
-![CowGo Entity Relationship Diagram](https://i.imgur.com/K8VNtLr.png)
+![CowGo Entity Relationship Diagram](https://i.imgur.com/J79ChBR.png)
 
 ---
 
