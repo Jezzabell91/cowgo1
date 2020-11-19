@@ -1,4 +1,6 @@
 class AddressesController < ApplicationController
+# AddressesController is the super class for Users::AddressesController and Jobs::AddressesController
+# @addressable becomes a user or a job depending on which subclass 
 
     def new
         @address = @addressable.addresses.new

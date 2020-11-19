@@ -1,4 +1,5 @@
 class Jobs::AddressesController < AddressesController
+    # sets @addressable to a job
     before_action :set_addressable
 
     private
